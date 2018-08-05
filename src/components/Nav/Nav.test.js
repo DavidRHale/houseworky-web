@@ -23,6 +23,11 @@ describe('Nav', () => {
     expect(component.type()).toEqual('nav');
   });
 
+  it('should have a brand logo', () => {
+    const logo = component.find('.brand-logo');
+    expect(logo.text()).toEqual('Houseworky');
+  });
+
   it('has a Sign Up Link when not logged in', () => {
     // TODO: Add auth props
     const signupLink = component.find('#signup');

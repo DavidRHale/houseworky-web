@@ -3,8 +3,17 @@ import { Link } from 'react-router-dom';
 
 export default () => (
   <nav>
-    <Link to="/" id="signup">
-      Sign Up
-    </Link>
+    <div className="nav-wrapper">
+      <a href="#" className="brand-logo left">
+        Houseworky
+      </a>
+      <ul className="right">
+        <li>
+          <Link to="/" id="signup">
+            Sign Up
+          </Link>
+        </li>
+      </ul>
+    </div>
   </nav>
 );

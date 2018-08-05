@@ -7,7 +7,7 @@ import Nav from './Nav/Nav';
 const App = () => (
   <div>
     <BrowserRouter>
-      <div>
+      <div className="container">
         <Nav />
         <Route exact path="/" component={Home} />
       </div>
