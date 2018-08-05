@@ -9,7 +9,7 @@ export default () => (
       </a>
       <ul className="right">
         <li>
-          <Link to="/" id="signup">
+          <Link to="/signup" id="signup">
             Sign Up
           </Link>
         </li>

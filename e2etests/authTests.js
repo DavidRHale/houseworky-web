@@ -7,7 +7,10 @@ describe('Signup', () => {
   it('Should allow a user to sign up', () => {
     browser.url('http://localhost:3000/');
 
-    const signupButtonText = browser.element('#signup').getText();
-    expect(signupButtonText).to.equal('Sign Up');
+    const signupButton = browser.element('#signup');
+    expect(signupButton.getText()).to.equal('Sign Up');
+
+    signupButton.click();
+    expect(browser.getUrl()).to.equal('http://localhost:3000/signup');
   });
 });
