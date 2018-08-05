@@ -1,7 +1,18 @@
-import React, { Component } from 'react';
+import React from 'react';
+import { BrowserRouter, Route } from 'react-router-dom';
 
-export default () => (
+import Home from './Home/Home';
+import Nav from './Nav/Nav';
+
+const App = () => (
   <div>
-    Houseworky
+    <BrowserRouter>
+      <div>
+        <Nav />
+        <Route exact path="/" component={Home} />
+      </div>
+    </BrowserRouter>
   </div>
 );
+
+export default App;
