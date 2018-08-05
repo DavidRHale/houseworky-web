@@ -3,6 +3,7 @@ import { BrowserRouter, Route } from 'react-router-dom';
 
 import Home from './Home/Home';
 import Nav from './Nav/Nav';
+import SignUp from './SignUp/SignUp';
 
 const App = () => (
   <div>
@@ -10,6 +11,7 @@ const App = () => (
       <div className="container">
         <Nav />
         <Route exact path="/" component={Home} />
+        <Route exact path="/signup" component={SignUp} />
       </div>
     </BrowserRouter>
   </div>

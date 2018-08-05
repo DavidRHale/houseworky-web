@@ -12,5 +12,22 @@ describe('Signup', () => {
 
     signupButton.click();
     expect(browser.getUrl()).to.equal('http://localhost:3000/signup');
+
+    const signupHeader = browser.element('h1');
+    expect(signupHeader.getText()).to.equal('Sign Up');
+
+    const nameInput = browser.element('#name-input');
+    nameInput.setValue('Dave');
+    const emailInput = browser.element('#email-input');
+    emailInput.setValue('dave@gmail.com');
+    const passwordInput = browser.element('#password-input');
+    passwordInput.setValue('P@ssword');
+    const passwordConfirmInput = browser.element('#password-confirm-input');
+    passwordConfirmInput.setValue('P@ssword');
+
+    const submitButton = browser.element('#submit-button');
+    submitButton.click();
+
+    expect(browser.getUrl()).to.equal('http://localhost:3000/login');
   });
 });
