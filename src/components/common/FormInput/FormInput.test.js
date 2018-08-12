@@ -1,4 +1,4 @@
-/* global beforeEach, describe, it, expect */
+/* global jset, beforeEach, describe, it, expect */
 
 import React from 'react';
 import Enzyme, { shallow } from 'enzyme';
@@ -10,6 +10,8 @@ Enzyme.configure({ adapter: new Adapter() });
 
 describe('Form Input', () => {
   let component;
+  const changeMock = jest.fn();
+
   beforeEach(() => {
     component = shallow(
       <FormInput
@@ -17,6 +19,8 @@ describe('Form Input', () => {
         type="email"
         placeholder="dave@gmail.com"
         idCore="email"
+        value="dave@hotmail.com"
+        onChange={changeMock}
       />,
     );
   });
@@ -58,11 +62,20 @@ describe('Form Input', () => {
   });
 
   it('should have default input type of text', () => {
-    component = shallow(<FormInput labelText="Name:" idCore="name" />);
+    component = shallow(<FormInput labelText="Name:" idCore="name" value="" onChange={() => { }} />);
     expect(component.find('input').props().type).toEqual('text');
   });
 
   it('should have a placeholder passed by props', () => {
     expect(component.find('input').props().placeholder).toEqual('dave@gmail.com');
+  });
+
+  it('should set input value to be the value prop', () => {
+    expect(component.find('input').props().value).toEqual('dave@hotmail.com');
+  });
+
+  it('should call onChange prop when change occurs', () => {
+    expect(component.find('input').simulate('change'));
+    expect(changeMock.mock.calls.length).toEqual(1);
   });
 });

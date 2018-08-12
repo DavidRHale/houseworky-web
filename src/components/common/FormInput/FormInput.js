@@ -1,3 +1,5 @@
+/* eslint jsx-a11y/label-has-for: 0 */
+
 import React from 'react';
 import PropTypes from 'prop-types';
 
@@ -7,6 +9,8 @@ const FormInput = (props) => {
     type,
     placeholder,
     idCore,
+    value,
+    onChange,
   } = props;
 
   return (
@@ -16,12 +20,14 @@ const FormInput = (props) => {
     >
       <label htmlFor={`${idCore}-input`} className="active">
         {labelText}
-        <input
-          type={type}
-          placeholder={placeholder}
-          id={`${idCore}-input`}
-        />
       </label>
+      <input
+        type={type}
+        placeholder={placeholder}
+        id={`${idCore}-input`}
+        value={value}
+        onChange={onChange}
+      />
     </div>
   );
 };
@@ -31,6 +37,8 @@ FormInput.propTypes = {
   type: PropTypes.string,
   placeholder: PropTypes.string,
   idCore: PropTypes.string.isRequired,
+  value: PropTypes.string.isRequired,
+  onChange: PropTypes.func.isRequired,
 };
 
 FormInput.defaultProps = {

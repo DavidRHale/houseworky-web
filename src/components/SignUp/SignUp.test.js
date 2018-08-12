@@ -11,6 +11,7 @@ Enzyme.configure({ adapter: new Adapter() });
 
 describe('SignUp', () => {
   let component;
+
   beforeEach(() => {
     component = shallow(<SignUp />);
   });
@@ -36,11 +37,35 @@ describe('SignUp', () => {
   });
 
   it('has a email FormInput', () => {
-    const nameInput = component.find('FormInput').at(1);
-    expect(nameInput.type()).toEqual(FormInput);
-    expect(nameInput.props().idCore).toEqual('email');
-    expect(nameInput.props().labelText).toEqual('Email:');
-    expect(nameInput.props().type).toEqual('email');
-    expect(nameInput.props().placeholder).toEqual('david@gmail.com');
+    const emailInput = component.find('FormInput').at(1);
+    expect(emailInput.type()).toEqual(FormInput);
+    expect(emailInput.props().idCore).toEqual('email');
+    expect(emailInput.props().labelText).toEqual('Email:');
+    expect(emailInput.props().type).toEqual('email');
+    expect(emailInput.props().placeholder).toEqual('david@gmail.com');
+  });
+
+  it('has a password FormInput', () => {
+    const passwordInput = component.find('FormInput').at(2);
+    expect(passwordInput.type()).toEqual(FormInput);
+    expect(passwordInput.props().idCore).toEqual('password');
+    expect(passwordInput.props().labelText).toEqual('Password:');
+    expect(passwordInput.props().type).toEqual('password');
+    expect(passwordInput.props().placeholder).toEqual('P@ssw0rd');
+  });
+
+  it('has a password confirm FormInput', () => {
+    const passwordInput = component.find('FormInput').at(3);
+    expect(passwordInput.type()).toEqual(FormInput);
+    expect(passwordInput.props().idCore).toEqual('password-confirm');
+    expect(passwordInput.props().labelText).toEqual('Confirm Password:');
+    expect(passwordInput.props().type).toEqual('password');
+    expect(passwordInput.props().placeholder).toEqual('P@ssw0rd');
+  });
+
+  it('has a submit input', () => {
+    const submit = component.find('#submit-button');
+    expect(submit.type()).toEqual('input');
+    expect(submit.props().value).toEqual('Sign Up');
   });
 });
