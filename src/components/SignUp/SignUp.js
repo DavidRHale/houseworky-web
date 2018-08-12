@@ -1,5 +1,7 @@
 import React from 'react';
 
+import FormInput from '../common/FormInput/FormInput';
+
 export default () => (
   <div>
     <h1 className="center">
@@ -7,20 +9,18 @@ export default () => (
     </h1>
     <div className="row">
       <form className="col s6 offset-s3">
-        <div
-          className="input-field"
-          id="name-input-wrapper"
-        >
-          <label htmlFor="name-input" className="active">
-            Name:
-          </label>
-          <input
-            type="text"
-            placeholder="Dave"
-            name="name"
-            id="name-input"
-          />
-        </div>
+        <FormInput
+          idCore="name"
+          labelText="Name:"
+          placeholder="David"
+        />
+
+        <FormInput
+          idCore="email"
+          type="email"
+          labelText="Email:"
+          placeholder="david@gmail.com"
+        />
       </form>
     </div>
   </div>
